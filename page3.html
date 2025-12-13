@@ -9,26 +9,25 @@
     <h1>مرحله سوم</h1>
     <p>شما وارد مرحله سوم شده‌اید.</p>
 
-    <!-- دکمه برای هدایت به مرحله سوم -->
-    <button id="goToThirdLink" onclick="goToThirdLink()">رفتن به مرحله سوم</button>
+    <button onclick="goToSecondLink()">رفتن به مرحله سوم</button>
 
     <script>
         // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
-        function goToThirdLink() {
+        function goToSecondLink() {
             // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
             if (localStorage.getItem('page2Completed') !== 'true') {
-                alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
-                window.location.href = 'page2.html'; // هدایت به صفحه دوم
+                alert('لطفاً ابتدا صفحه اول را تکمیل کنید.');
+                window.location.href = 'page3.html'; // هدایت به صفحه دوم
             } else {
                 // اگر صفحه دوم تکمیل شده باشد، هدایت به لینک مرحله سوم
                 window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
             }
         }
-
-        // بررسی تکمیل صفحه دوم و غیرفعال کردن دکمه در صورت عدم تکمیل
-        if (localStorage.getItem('page2Completed') !== 'true') {
-            document.getElementById('goToThirdLink').disabled = true; // غیرفعال کردن دکمه
-            document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید"; // تغییر متن دکمه
+        
+        // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
+        if (localStorage.getItem('page1Completed') !== 'true') {
+            document.getElementById('goToSecondLink').disabled = true;
+            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه اول را تکمیل کنید";
         }
     </script>
 </body>
