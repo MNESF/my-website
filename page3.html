@@ -15,7 +15,7 @@
         // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
         function goToSecondLink() {
             // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
-            if (localStorage.getItem('page2Completed') !== 'true') {
+            if (localStorage.getItem('page2.html') !== 'true') {
                 alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
                 window.location.href = 'page3.html'; // هدایت به صفحه دوم
             } else {
@@ -25,9 +25,9 @@
         }
         
         // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page2Completed') !== 'true') {
+        if (localStorage.getItem('page2.html') !== 'true') {
             document.getElementById('goToSecondLink').disabled = true;
-            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه اول را تکمیل کنید";
+            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید";
         }
     </script>
 </body>
