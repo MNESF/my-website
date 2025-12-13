@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه اول</title>
+</head>
+<body>
+    <h1>مرحله اول</h1>
+    <p>برای ورود به مرحله دوم، ابتدا باید مرحله اول را باز کنید.</p>
+
+    <button onclick="goToLink1()">رفتن به لینک مرحله اول</button>
+
+    <script>
+        // وقتی کاربر روی دکمه کلیک می‌کند، صفحه لینک اول باز می‌شود و شناسه ذخیره می‌شود
+        function goToLink1() {
+            // ذخیره کردن شناسه برای تایید باز شدن لینک اول
+            localStorage.setItem('link1Visited', 'true');
+            // هدایت به لینک اول
+            window.location.href = 'https://survey.porsline.ir/s/gVU62gDq'; // لینک مرحله اول
+        }
+    </script>
+</body>
+</html>
