@@ -9,11 +9,11 @@
     <h1>مرحله چهارم</h1>
     <p>شما وارد مرحله چهارم شده‌اید.</p>
 
-    <button id="goToFourthLink" onclick="goToFourthLink()">رفتن به مرحله چهارم</button>
+    <button id="goToThirdLink" onclick="goToThirdLink()">رفتن به مرحله چهارم</button>
 
     <script>
         // بررسی اینکه آیا صفحه سوم تکمیل شده است یا نه
-        function goToFourthLink() {
+        function goToThirdLink() {
             // اگر صفحه سوم تکمیل نشده باشد، هدایت به صفحه سوم
             if (localStorage.getItem('page3Completed') !== 'true') {
                 alert('لطفاً ابتدا صفحه سوم را تکمیل کنید.');
@@ -26,9 +26,10 @@
         
         // اگر صفحه سوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
         if (localStorage.getItem('page3Completed') !== 'true') {
-            document.getElementById('goToFourthLink').disabled = true;
-            document.getElementById('goToFourthLink').innerText = "لطفاً ابتدا صفحه سوم را تکمیل کنید";
+            document.getElementById('goToThirdLink').disabled = true;
+            document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه سوم را تکمیل کنید";
         }
     </script>
 </body>
 </html>
+حالا این کدو برای مرحله 4 بنویس
