@@ -16,7 +16,7 @@
         // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
         function goToThirdLink() {
             // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
-            if (localStorage.getItem('page3Completed') !== 'true') {
+            if (localStorage.getItem('page2Completed') !== 'true') {
                 alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
                 window.location.href = 'page3.html'; // هدایت به صفحه دوم
             } else {
