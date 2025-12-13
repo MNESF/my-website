@@ -3,64 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحله دوم</title>
+    <title>مرحله سوم</title>
 </head>
 <body>
-    <h1>مرحله دوم</h1>
-    <p>شما وارد مرحله دوم شده‌اید.</p>
+    <h1>مرحله سوم</h1>
+    <p>شما وارد مرحله سوم شده‌اید.</p>
 
-    <button onclick="goToSecondLink()">رفتن به مرحله دوم</button>
+    <button id="goToThirdLink" onclick="goToThirdLink()">رفتن به مرحله سوم</button>
 
     <script>
         // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
-        function goToSecondLink() {
-            // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه اول
-            if (localStorage.getItem('page1Completed') !== 'true') {
+        function goToThirdLink() {
+            // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
+            if (localStorage.getItem('page2Completed') !== 'true') {
                 alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
-                window.location.href = 'page1.html'; // هدایت به صفحه اول
+                window.location.href = 'page2.html'; // هدایت به صفحه دوم
             } else {
-                // اگر صفحه اول تکمیل شده باشد، هدایت به لینک مرحله دوم
-                window.location.href = '<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحله دوم</title>
-</head>
-<body>
-    <h1>مرحله دوم</h1>
-    <p>شما وارد مرحله دوم شده‌اید.</p>
-
-    <button onclick="goToSecondLink()">رفتن به مرحله دوم</button>
-
-    <script>
-        // بررسی اینکه آیا صفحه اول تکمیل شده است یا نه
-        function goToSecondLink() {
-            // اگر صفحه اول تکمیل نشده باشد، هدایت به صفحه اول
-            if (localStorage.getItem('page1Completed') !== 'true') {
-                alert('لطفاً ابتدا صفحه اول را تکمیل کنید.');
-                window.location.href = 'page1.html'; // هدایت به صفحه اول
-            } else {
-                // اگر صفحه اول تکمیل شده باشد، هدایت به لینک مرحله دوم
-                window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
+                // اگر صفحه دوم تکمیل شده باشد، هدایت به لینک مرحله سوم
+                window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
             }
         }
-        
-        // اگر صفحه اول تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page1Completed') !== 'true') {
-            document.getElementById('goToSecondLink').disabled = true;
-            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه دوم تکمیل کنید";
-        }
-    </script>
-</body>
-</html>'; // لینک مرحله دوم
-            }
-        }
-        
-        // اگر صفحه اول تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page1Completed') !== 'true') {
-            document.getElementById('goToSecondLink').disabled = true;
-            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه اول را تکمیل کنید";
+
+        // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
+        if (localStorage.getItem('page2Completed') !== 'true') {
+            document.getElementById('goToThirdLink').disabled = true;
+            document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید";
         }
     </script>
 </body>
