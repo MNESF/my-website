@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحله دوم</title>
+</head>
+<body>
+    <h1>مرحله دوم</h1>
+    <p>اگر می‌خواهید به این صفحه دسترسی داشته باشید، ابتدا باید مرحله اول را باز کنید.</p>
+
+    <button onclick="goToLink2()">رفتن به لینک مرحله دوم</button>
+
+    <script>
+        // بررسی اینکه آیا لینک اول باز شده است یا خیر
+        function goToLink2() {
+            // بررسی وضعیت باز شدن لینک اول
+            if (localStorage.getItem('link1Visited') === 'true') {
+                // اگر لینک اول باز شده باشد، هدایت به لینک دوم
+                window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
+            } else {
+                // اگر لینک اول باز نشده باشد، پیغام خطا نمایش می‌دهیم
+                alert('لطفاً ابتدا لینک مرحله اول را باز کنید.');
+            }
+        }
+    </script>
+</body>
+</html>
