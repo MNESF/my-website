@@ -9,15 +9,24 @@
     <h1>مرحله دوم</h1>
     <p>شما وارد مرحله دوم شده‌اید.</p>
 
-    <button onclick="goToSecondLink()">رفتن به مرحله دوم</button>
+    <button onclick="completeStep()">تکمیل مرحله دوم</button>
 
     <script>
+        // زمانی که کاربر دکمه را کلیک می‌کند، صفحه دوم تکمیل می‌شود
+        function completeStep() {
+            // ذخیره وضعیت تکمیل صفحه دوم در localStorage
+            localStorage.setItem('page2Completed', 'true'); // ذخیره وضعیت تکمیل صفحه دوم
+            
+            alert('شما مرحله دوم را تکمیل کردید!');
+            location.reload(); // ری‌لود صفحه به جای هدایت به صفحه بعدی
+        }
+
         // بررسی اینکه آیا صفحه اول تکمیل شده است یا نه
         function goToSecondLink() {
             // اگر صفحه اول تکمیل نشده باشد، هدایت به صفحه اول
             if (localStorage.getItem('page1Completed') !== 'true') {
                 alert('لطفاً ابتدا صفحه اول را تکمیل کنید.');
-                window.location.href = 'page2.html'; // هدایت به صفحه اول
+                window.location.href = 'page1.html'; // هدایت به صفحه اول
             } else {
                 // اگر صفحه اول تکمیل شده باشد، هدایت به لینک مرحله دوم
                 window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
