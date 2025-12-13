@@ -9,6 +9,7 @@
     <h1>مرحله سوم</h1>
     <p>شما وارد مرحله سوم شده‌اید.</p>
 
+    <!-- دکمه برای هدایت به مرحله سوم -->
     <button id="goToThirdLink" onclick="goToThirdLink()">رفتن به مرحله سوم</button>
 
     <script>
@@ -24,7 +25,7 @@
             }
         }
 
-        // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
+        // بررسی تکمیل صفحه دوم و غیرفعال کردن دکمه در صورت عدم تکمیل
         if (localStorage.getItem('page2Completed') !== 'true') {
             document.getElementById('goToThirdLink').disabled = true;
             document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید";
