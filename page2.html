@@ -4,12 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مرحله دوم</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* تغییر رنگ پس‌زمینه */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #ff5f5f; /* تغییر رنگ دکمه */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #e04f4f; /* تغییر رنگ دکمه هنگام هاور */
+        }
+
+        button:active {
+            transform: scale(1);
+            background-color: #c03a3a; /* رنگ پس زمینه فعال */
+        }
+
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>مرحله دوم</h1>
-    <p>شما وارد مرحله دوم شده‌اید.</p>
+    <div class="container">
+        <h1>مرحله دوم</h1>
+        <p>شما وارد مرحله دوم شده‌اید.</p>
 
-    <button id="goToSecondLink" onclick="completeStep()">تکمیل مرحله دوم</button>
+        <button id="goToSecondLink" onclick="completeStep()">تکمیل مرحله دوم</button>
+    </div>
 
     <script>
         // زمانی که کاربر دکمه را کلیک می‌کند، صفحه دوم تکمیل می‌شود
