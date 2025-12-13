@@ -18,7 +18,7 @@
             // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
             if (localStorage.getItem('page2Completed') !== 'true') {
                 alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
-                window.location.href = 'page3.html'; // هدایت به صفحه دوم
+                window.location.href = 'page2.html'; // هدایت به صفحه دوم
             } else {
                 // اگر صفحه دوم تکمیل شده باشد، هدایت به لینک مرحله سوم
                 window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
@@ -27,8 +27,8 @@
 
         // بررسی تکمیل صفحه دوم و غیرفعال کردن دکمه در صورت عدم تکمیل
         if (localStorage.getItem('page2Completed') !== 'true') {
-            document.getElementById('goToThirdLink').disabled = true;
-            document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید";
+            document.getElementById('goToThirdLink').disabled = true; // غیرفعال کردن دکمه
+            document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید"; // تغییر متن دکمه
         }
     </script>
 </body>
