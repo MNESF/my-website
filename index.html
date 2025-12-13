@@ -3,13 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه اول</title>
+    <title>مرحله اول</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* پس زمینه گرادیانت */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #d55c4e; /* تغییر رنگ دکمه هنگام هاور */
+        }
+
+        button:active {
+            transform: scale(1);
+            background-color: #b74a3a; /* رنگ پس زمینه فعال */
+        }
+
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>مرحله اول</h1>
-    <p>برای ادامه به مرحله دوم، ابتدا باید این صفحه را تکمیل کنید.</p>
+    <div class="container">
+        <h1>مرحله اول</h1>
+        <p>برای ادامه به مرحله دوم، ابتدا باید این صفحه را تکمیل کنید.</p>
 
-    <button onclick="completeStep()">تکمیل مرحله اول</button>
+        <button onclick="completeStep()">تکمیل مرحله اول</button>
+    </div>
 
     <script>
         // زمانی که کاربر دکمه را کلیک می‌کند، صفحه اول تکمیل می‌شود
