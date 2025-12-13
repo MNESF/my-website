@@ -9,21 +9,24 @@
     <h1>مرحله سوم</h1>
     <p>شما وارد مرحله سوم شده‌اید.</p>
 
-    <button id="goToThirdLink" onclick="goToThirdLink()">رفتن به مرحله سوم</button>
+    <button onclick="completeStep()">تکمیل مرحله سوم</button>
 
     <script>
-        // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
-        function goToThirdLink() {
-            // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
+        // زمانی که کاربر دکمه را کلیک می‌کند، صفحه سوم تکمیل می‌شود
+        function completeStep() {
+            // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
             if (localStorage.getItem('page2Completed') !== 'true') {
                 alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
-                window.location.href = 'page2.html'; // هدایت به صفحه دوم
-            } else {
-                // اگر صفحه دوم تکمیل شده باشد، هدایت به لینک مرحله سوم
-                window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
+                return; // اگر صفحه دوم تکمیل نشده باشد، از ادامه عملکرد جلوگیری می‌کند
             }
+
+            // ذخیره وضعیت تکمیل صفحه سوم در localStorage
+            localStorage.setItem('page3Completed', 'true'); // ذخیره وضعیت تکمیل صفحه سوم
+            
+            // هدایت به لینک مرحله سوم
+            window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
         }
-        
+
         // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
         if (localStorage.getItem('page2Completed') !== 'true') {
             document.getElementById('goToThirdLink').disabled = true;
