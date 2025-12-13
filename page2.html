@@ -9,7 +9,7 @@
     <h1>مرحله دوم</h1>
     <p>شما وارد مرحله دوم شده‌اید.</p>
 
-    <button onclick="completeStep()">تکمیل مرحله دوم</button>
+    <button id="goToSecondLink" onclick="completeStep()">تکمیل مرحله دوم</button>
 
     <script>
         // زمانی که کاربر دکمه را کلیک می‌کند، صفحه دوم تکمیل می‌شود
@@ -23,8 +23,8 @@
             // ذخیره وضعیت تکمیل صفحه دوم در localStorage
             localStorage.setItem('page2Completed', 'true'); // ذخیره وضعیت تکمیل صفحه دوم
             
-          
-            window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // هدایت به لینک مرحله دوم
+            // هدایت به لینک مرحله دوم
+            window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
         }
 
         // اگر صفحه اول تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
