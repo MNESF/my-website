@@ -9,7 +9,7 @@
     <h1>مرحله سوم</h1>
     <p>شما وارد مرحله سوم شده‌اید.</p>
 
-    <button onclick="completeStep()">تکمیل مرحله سوم</button>
+    <button id="goToThirdLink" onclick="completeStep()">تکمیل مرحله سوم</button>
 
     <script>
         // زمانی که کاربر دکمه را کلیک می‌کند، صفحه سوم تکمیل می‌شود
@@ -22,7 +22,7 @@
 
             // ذخیره وضعیت تکمیل صفحه سوم در localStorage
             localStorage.setItem('page3Completed', 'true'); // ذخیره وضعیت تکمیل صفحه سوم
-            
+
             // هدایت به لینک مرحله سوم
             window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
         }
