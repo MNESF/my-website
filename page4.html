@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحله سوم</title>
+    <title>مرحله چهارم</title>
 </head>
 <body>
-    <h1>مرحله سوم</h1>
-    <p>شما وارد مرحله سوم شده‌اید.</p>
+    <h1>مرحله چهارم</h1>
+    <p>شما وارد مرحله چهارم شده‌اید.</p>
 
-    <button id="goToThirdLink" onclick="goToThirdLink()">رفتن به مرحله سوم</button>
+    <button id="goToFourthLink" onclick="goToFourthLink()">رفتن به مرحله چهارم</button>
 
     <script>
-        // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
-        function goToThirdLink() {
-            // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
-            if (localStorage.getItem('page2Completed') !== 'true') {
-                alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
-                window.location.href = 'page2.html'; // هدایت به صفحه دوم
+        // بررسی اینکه آیا صفحه سوم تکمیل شده است یا نه
+        function goToFourthLink() {
+            // اگر صفحه سوم تکمیل نشده باشد، هدایت به صفحه سوم
+            if (localStorage.getItem('page3Completed') !== 'true') {
+                alert('لطفاً ابتدا صفحه سوم را تکمیل کنید.');
+                window.location.href = 'page3.html'; // هدایت به صفحه سوم
             } else {
-                // اگر صفحه دوم تکمیل شده باشد، هدایت به لینک مرحله سوم
-                window.location.href = 'https://survey.porsline.ir/s/Nf2hOR20'; // لینک مرحله سوم
+                // اگر صفحه سوم تکمیل شده باشد، هدایت به لینک مرحله چهارم
+                window.location.href = 'https://survey.porsline.ir/s/your-link-for-page4'; // لینک مرحله چهارم
             }
         }
         
-        // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page2Completed') !== 'true') {
-            document.getElementById('goToThirdLink').disabled = true;
-            document.getElementById('goToThirdLink').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید";
+        // اگر صفحه سوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
+        if (localStorage.getItem('page3Completed') !== 'true') {
+            document.getElementById('goToFourthLink').disabled = true;
+            document.getElementById('goToFourthLink').innerText = "لطفاً ابتدا صفحه سوم را تکمیل کنید";
         }
     </script>
 </body>
