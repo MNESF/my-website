@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحله سوم</title>
+</head>
+<body>
+    <h1>مرحله سوم</h1>
+    <p>شما وارد مرحله سوم شده‌اید.</p>
+
+    <button onclick="goToLink3()">رفتن به مرحله سوم</button>
+
+    <script>
+        // بررسی اینکه آیا صفحه دوم تکمیل شده است یا نه
+        function goToLink3() {
+            // اگر صفحه دوم تکمیل نشده باشد، هدایت به صفحه دوم
+            if (localStorage.getItem('page2Completed') !== 'true') {
+                alert('لطفاً ابتدا صفحه دوم را تکمیل کنید.');
+                window.location.href = 'page2.html'; // هدایت به صفحه دوم
+            } else {
+                // اگر صفحه دوم تکمیل شده باشد، هدایت به لینک مرحله سوم
+                window.location.href = 'https://survey.porsline.ir/s/your-link-here'; // لینک مرحله سوم
+            }
+        }
+
+        // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
+        if (localStorage.getItem('page2Completed') !== 'true') {
+            document.getElementById('goToLink3').disabled = true;
+            document.getElementById('goToLink3').innerText = "لطفاً ابتدا صفحه دوم را تکمیل کنید";
+        }
+    </script>
+</body>
+</html>
