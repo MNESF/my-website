@@ -25,7 +25,7 @@
         }
         
         // اگر صفحه دوم تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page1Completed') !== 'true') {
+        if (localStorage.getItem('page2Completed') !== 'true') {
             document.getElementById('goToSecondLink').disabled = true;
             document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه اول را تکمیل کنید";
         }
