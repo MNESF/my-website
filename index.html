@@ -7,17 +7,16 @@
 </head>
 <body>
     <h1>مرحله اول</h1>
-    <p>برای ورود به مرحله دوم، ابتدا باید مرحله اول را باز کنید.</p>
+    <p>برای ادامه به مرحله دوم، ابتدا باید این صفحه را تکمیل کنید.</p>
 
-    <button onclick="goToLink1()">رفتن به لینک مرحله اول</button>
+    <button onclick="completeStep()">تکمیل مرحله اول</button>
 
     <script>
-        // وقتی کاربر روی دکمه کلیک می‌کند، صفحه لینک اول باز می‌شود و شناسه ذخیره می‌شود
-        function goToLink1() {
-            // ذخیره کردن شناسه برای تایید باز شدن لینک اول
-            localStorage.setItem('link1Visited', 'true');
-            // هدایت به لینک اول
-            window.location.href = 'https://survey.porsline.ir/s/gVU62gDq'; // لینک مرحله اول
+        // زمانی که کاربر دکمه را کلیک می‌کند، صفحه اول تکمیل می‌شود
+        function completeStep() {
+            // ذخیره وضعیت تکمیل صفحه اول در localStorage
+            localStorage.setItem('page1Completed', 'true');
+            alert('شما مرحله اول را تکمیل کردید! حالا می‌توانید به مرحله بعدی بروید.');
         }
     </script>
 </body>
