@@ -60,24 +60,34 @@
         }
 
         img {
-            width: 80%;  /* تنظیم عرض تصویر به 80% عرض صفحه */
-            max-width: 500px; /* حداکثر عرض 500px */
-            height: auto;  /* حفظ تناسب تصویر */
+            width: 200px;  /* عرض تصویر */
+            height: 200px; /* ارتفاع تصویر (به صورت مربع) */
+            object-fit: cover; /* برای اینکه تصویر تناسباتش خراب نشه */
             margin: 20px 0; /* فاصله از بالا و پایین */
             border-radius: 10px; /* گوشه‌های نرم */
+        }
+
+        .text-above {
+            margin-bottom: 20px; /* فاصله از تصویر */
+        }
+
+        .text-below {
+            margin-top: 20px; /* فاصله از تصویر */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>به پروژه مهندسی رهاب خوش آمدید</h1>
+        <!-- متن بالای تصویر -->
+        <h1 class="text-above">به پروژه مهندسی رهاب خوش آمدید</h1>
 
         <!-- اضافه کردن تصویر -->
         <img src="https://github.com/MNESF/my-website/raw/main/Untitled.png" alt="توضیح تصویر">
 
-        <p> برای پیدا کردن غرفه ما لطفا بر روی لینک زیر کلید کنید </p>
+        <!-- متن پایین تصویر -->
+        <p class="text-below">برای پیدا کردن غرفه ما لطفا بر روی لینک زیر کلید کنید</p>
 
-        <button onclick="completeStep()">اینجا کلید کنید  </button>
+        <button onclick="completeStep()">اینجا کلید کنید</button>
     </div>
 
     <script>
