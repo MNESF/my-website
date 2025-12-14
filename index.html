@@ -59,11 +59,20 @@
             border-radius: 15px;
         }
 
+        img {
+            max-width: 100%; /* برای اینکه اندازه تصویر با عرض صفحه سازگار شود */
+            height: auto; /* حفظ تناسب تصویر */
+            margin: 20px 0; /* فاصله از بالا و پایین */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>به پروژه مهندسی رهاب خوش آمدید</h1>
+
+        <!-- اضافه کردن تصویر -->
+        <img src="path_to_your_image.jpg" alt="توضیح تصویر">
+
         <p> برای پیدا کردن غرفه ما لطفا بر روی لینک زیر کلید کنید </p>
 
         <button onclick="completeStep()">اینجا کلید کنید  </button>
