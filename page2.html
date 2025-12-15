@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> توضیحات و سوالات</title>
+    <title>توضیحات و سوالات</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc); /* تغییر رنگ پس‌زمینه */
+
+            /* بک‌گراند تصویری */
+            background-image: url("https://raw.githubusercontent.com/MNESF/my-website/main/back1.jpg");
+            background-size: cover;          /* کل صفحه رو پر کنه */
+            background-position: center;     /* وسط چین */
+            background-repeat: no-repeat;    /* تکرار نشه */
+            background-attachment: fixed;    /* موقع اسکرول ثابت بمونه */
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -66,7 +73,7 @@
         <h1>از این که تا اینجای راه همراه ما بودید سپاس گذاریم</h1>
         <h1>برای ورود به مسابقه و توضیحات بر روی لینک زیر کلید کنید</h1>
 
-        <button id="goToSecondLink" onclick="completeStep()">  اینجا کلید کنید</button>
+        <button id="goToSecondLink" onclick="completeStep()">این جا کلید کنید</button>
     </div>
 
     <script>
