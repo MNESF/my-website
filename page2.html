@@ -70,7 +70,7 @@
 
         .image-container {
             width: 200px;
-            height: 200px;
+            height: 215px;
             margin: 20px auto;
             overflow: hidden;
             border-radius: 10px;
@@ -96,4 +96,23 @@
     <div class="container">
         <h2>از این که همراه ما بودید سپاس گذاریم</h2>
 
-        <!-- قرار داد
+        <!-- قرار دادن تصویر داخل یک مربع -->
+        <div class="image-container">
+            <img src="https://github.com/MNESF/my-website/raw/main/Untit%D8%B2%D8%B3%DB%8C%D8%B2%D8%B7%D8%B8led.png" alt="توضیح تصویر">
+        </div>
+
+        <h1>برای ورود به مسابقه و توضیحات بر روی لینک زیر کلید کنید</h1>
+
+        <button id="goToSecondLink" onclick="completeStep()">این جا کلید کنید</button>
+    </div>
+
+    <script>
+        // زمانی که کاربر دکمه را کلیک می‌کند، صفحه دوم تکمیل می‌شود
+        function completeStep() {
+            // حذف بررسی وضعیت صفحه اول
+            // مستقیم به لینک مرحله دوم هدایت می‌شود
+            window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
+        }
+    </script>
+</body>
+</html>
