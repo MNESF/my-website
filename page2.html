@@ -7,45 +7,39 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-
-            /* بک‌گراند تصویری */
             background-image: url("https://raw.githubusercontent.com/MNESF/my-website/main/back1.jpg");
-            background-size: cover;          /* کل صفحه رو پر کنه */
-            background-position: center;     /* وسط چین */
-            background-repeat: no-repeat;    /* تکرار نشه */
-            background-attachment: fixed;    /* موقع اسکرول ثابت بمونه */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
 
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            color: black; /* رنگ متن مشکی */
+            color: black;
             text-align: center;
         }
 
-       h1 {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: black; /* رنگ عنوان مشکی */
-    font-weight: bold; /* اعمال ضخامت به فونت */
-    font-family: 'Arial', sans-serif; /* انتخاب فونت تیتر */
-}
-
+        h1 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: black;
+            font-weight: bold;
         }
 
         h2 {
             font-size: 0.5rem;
             margin-bottom: 30px;
-            color: black; /* رنگ متن مشکی */
-            font-weight: bold; /* اعمال ضخامت به فونت */
-            font-family: 'Arial', sans-serif; /* انتخاب فونت تیتر */
+            color: black;
+            font-weight: bold;
         }
 
         button {
             padding: 15px 30px;
             font-size: 1.2rem;
-            background-color: #9b59b6; /* رنگ دکمه بنفش کم‌رنگ */
+            background-color: #9b59b6;
             color: white;
             border: none;
             border-radius: 5px;
@@ -56,12 +50,12 @@
 
         button:hover {
             transform: scale(1.1);
-            background-color: #8e44ad; /* تغییر رنگ دکمه هنگام هاور */
+            background-color: #8e44ad;
         }
 
         button:active {
             transform: scale(1);
-            background-color: #7d3c98; /* رنگ پس‌زمینه فعال */
+            background-color: #7d3c98;
         }
 
         .container {
@@ -75,25 +69,25 @@
         }
 
         .image-container {
-            width: 200px;  /* عرض مربع */
-            height: 215px; /* ارتفاع مربع */
-            margin: 20px auto; /* فاصله از بالا و پایین */
-            overflow: hidden; /* مخفی کردن قسمت‌های اضافی */
-            border-radius: 10px; /* گوشه‌های نرم */
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
         }
 
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* برای اینکه تصویر به صورت کامل در مربع قرار بگیرد */
+            object-fit: cover;
         }
 
         .text-above {
-            margin-bottom: 20px; /* فاصله از تصویر */
+            margin-bottom: 20px;
         }
 
         .text-below {
-            margin-top: 20px; /* فاصله از تصویر */
+            margin-top: 20px;
         }
 
     </style>
@@ -102,37 +96,4 @@
     <div class="container">
         <h2>از این که همراه ما بودید سپاس گذاریم</h2>
 
-        <!-- قرار دادن تصویر داخل یک مربع -->
-        <div class="image-container">
-            <img src="https://github.com/MNESF/my-website/raw/main/Untit%D8%B2%D8%B3%DB%8C%D8%B2%D8%B7%D8%B8led.png" alt="توضیح تصویر">
-        </div>
-
-        <h1>برای ورود به مسابقه و توضیحات بر روی لینک زیر کلید کنید</h1>
-
-        <button id="goToSecondLink" onclick="completeStep()">این جا کلید کنید</button>
-    </div>
-
-    <script>
-        // زمانی که کاربر دکمه را کلیک می‌کند، صفحه دوم تکمیل می‌شود
-        function completeStep() {
-            // بررسی اینکه آیا صفحه اول تکمیل شده است یا نه
-            if (localStorage.getItem('page1Completed') !== 'true') {
-                alert('لطفاً ابتدا صفحه اول را تکمیل کنید.');
-                return; // اگر صفحه اول تکمیل نشده باشد، از ادامه عملکرد جلوگیری می‌کند
-            }
-
-            // ذخیره وضعیت تکمیل صفحه دوم در localStorage
-            localStorage.setItem('page2Completed', 'true'); // ذخیره وضعیت تکمیل صفحه دوم
-            
-            // هدایت به لینک مرحله دوم
-            window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
-        }
-
-        // اگر صفحه اول تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page1Completed') !== 'true') {
-            document.getElementById('goToSecondLink').disabled = true;
-            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه اول را تکمیل کنید";
-        }
-    </script>
-</body>
-</html>
+        <!-- قرار داد
