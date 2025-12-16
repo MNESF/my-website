@@ -113,26 +113,16 @@
     </div>
 
     <script>
-        // زمانی که کاربر دکمه را کلیک می‌کند، صفحه دوم تکمیل می‌شود
-        function completeStep() {
-            // بررسی اینکه آیا صفحه اول تکمیل شده است یا نه
-            if (localStorage.getItem('page1Completed') !== 'true') {
-                alert('لطفاً ابتدا صفحه اول را تکمیل کنید.');
-                return; // اگر صفحه اول تکمیل نشده باشد، از ادامه عملکرد جلوگیری می‌کند
-            }
+     
 
-            // ذخیره وضعیت تکمیل صفحه دوم در localStorage
-            localStorage.setItem('page2Completed', 'true'); // ذخیره وضعیت تکمیل صفحه دوم
+         
             
             // هدایت به لینک مرحله دوم
             window.location.href = 'https://survey.porsline.ir/s/O0EdL7Nb'; // لینک مرحله دوم
         }
 
-        // اگر صفحه اول تکمیل نشده باشد، دکمه غیر فعال می‌شود و پیامی نشان داده می‌شود
-        if (localStorage.getItem('page1Completed') !== 'true') {
-            document.getElementById('goToSecondLink').disabled = true;
-            document.getElementById('goToSecondLink').innerText = "لطفاً ابتدا صفحه اول را تکمیل کنید";
-        }
+      
+    
     </script>
 </body>
 </html>
