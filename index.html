@@ -359,11 +359,14 @@ placeholder="📍 مکان قرار">
 
 <script>
 
-
 // لینک گوگل شیت
 const sheetURL =
 "https://script.google.com/macros/s/AKfycbwh3ZhvKJ8EnegU4dSsxdtRf3s0do17wf_Trd_pqYbM5g9zBcD_Hu1d9Z5irx_ABFU1/exec";
 
+
+// جلوگیری از چند بار کلیک
+let isSending = false;
+let typingTimer = null;
 
 
 
@@ -382,11 +385,7 @@ initialValue:false
 
 
 
-
-
-
 // دکمه نه
-
 
 const yes=document.getElementById("yes");
 
@@ -425,10 +424,7 @@ no.addEventListener("touchstart",moveNo);
 
 
 
-
-
 // رفتن صفحه دوم
-
 
 yes.onclick=function(){
 
@@ -445,34 +441,52 @@ page2.style.display="block";
 
 
 
-
-
 // ثبت قرار
-
 
 save.onclick=function(){
 
 
-let date=
+if(isSending) return;
+
+
+
+let date =
 document.getElementById("date").value;
 
 
-let time=
+let time =
 document.getElementById("time").value;
 
 
-let place=
+let place =
 document.getElementById("place").value;
+
 
 
 
 if(date && time && place){
 
 
+isSending=true;
+
+
+save.disabled=true;
+
+save.innerHTML="در حال ثبت... ❤️";
+
+
 
 fetch(sheetURL,{
 
 method:"POST",
+
+mode:"no-cors",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
 
 body:JSON.stringify({
 
@@ -485,6 +499,8 @@ place:place
 })
 
 })
+
+
 .then(()=>{
 
 
@@ -496,11 +512,23 @@ page3.style.display="block";
 startTyping(date,time,place);
 
 
+
 })
+
 
 .catch(()=>{
 
+
 alert("خطا در ارسال اطلاعات");
+
+
+isSending=false;
+
+
+save.disabled=false;
+
+save.innerHTML="ثبت قرار ❤️";
+
 
 });
 
@@ -510,7 +538,9 @@ alert("خطا در ارسال اطلاعات");
 
 else{
 
+
 alert("همه قسمت‌ها رو کامل کن ❤️");
+
 
 }
 
@@ -526,7 +556,8 @@ alert("همه قسمت‌ها رو کامل کن ❤️");
 function startTyping(date,time,place){
 
 
-let text=
+
+let text =
 
 `درست یک هفته از هم دور بودیم...
 
@@ -552,7 +583,7 @@ let text=
 
 اشی مشی کوچولوی من ❤️
 
-این وب سایت فقط برای تو ساختم چون ارزششو داری 
+این وب سایت فقط برای تو ساختم چون ارزششو داری
 
 منتظرم...`;
 
@@ -564,10 +595,23 @@ let i=0;
 let box=document.getElementById("text");
 
 
-let timer=setInterval(()=>{
+// جلوگیری از چند تایپ همزمان
+
+box.innerHTML="";
 
 
-box.innerHTML+=text[i];
+if(typingTimer){
+
+clearInterval(typingTimer);
+
+}
+
+
+
+typingTimer=setInterval(()=>{
+
+
+box.innerHTML += text[i];
 
 
 i++;
@@ -575,7 +619,9 @@ i++;
 
 if(i>=text.length){
 
-clearInterval(timer);
+
+clearInterval(typingTimer);
+
 
 }
 
@@ -583,6 +629,7 @@ clearInterval(timer);
 },60);
 
 
+
 }
 
 
@@ -591,7 +638,7 @@ clearInterval(timer);
 
 
 
-// قلب ها
+// قلب های متحرک
 
 
 setInterval(()=>{
