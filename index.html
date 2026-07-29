@@ -2,10 +2,12 @@
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>یه حرف کوچیک ❤️</title>
+
 
 <style>
 
@@ -14,50 +16,57 @@
     font-family:Tahoma, sans-serif;
 }
 
+
 body{
+
     height:100vh;
     margin:0;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     background:linear-gradient(135deg,#ff758c,#ff7eb3);
+
     overflow:hidden;
+
 }
+
 
 
 .container{
 
-    background:white;
     width:90%;
     max-width:430px;
-    padding:40px 25px;
-    text-align:center;
+
+    background:white;
+
+    padding:35px 25px;
+
     border-radius:35px;
+
+    text-align:center;
+
     box-shadow:0 20px 60px rgba(0,0,0,.2);
 
 }
 
 
+
 .heart{
 
     font-size:80px;
+
     animation:beat 1.2s infinite;
 
 }
 
 
-@keyframes beat{
 
-    0%{
-        transform:scale(1);
-    }
+@keyframes beat{
 
     50%{
         transform:scale(1.2);
-    }
-
-    100%{
-        transform:scale(1);
     }
 
 }
@@ -67,6 +76,7 @@ body{
 h1{
 
     color:#e63946;
+
     font-size:30px;
 
 }
@@ -76,8 +86,10 @@ h1{
 p{
 
     color:#555;
-    font-size:18px;
+
     line-height:2;
+
+    font-size:17px;
 
 }
 
@@ -86,9 +98,9 @@ p{
 .buttons{
 
     margin-top:35px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
+
+    height:80px;
+
     position:relative;
 
 }
@@ -98,10 +110,15 @@ p{
 button{
 
     border:none;
-    padding:15px 35px;
+
     border-radius:50px;
+
+    padding:15px 35px;
+
     font-size:20px;
+
     cursor:pointer;
+
     transition:.3s;
 
 }
@@ -111,6 +128,7 @@ button{
 #yes{
 
     background:#e63946;
+
     color:white;
 
 }
@@ -120,21 +138,80 @@ button{
 #no{
 
     background:#ddd;
+
     color:#555;
+
     position:absolute;
+
+    right:40px;
 
 }
 
 
 
-.message{
+
+/* صفحه دوم */
+
+
+#page2{
 
     display:none;
 
 }
 
 
+
+.box{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin:25px 0;
+
+}
+
+
+
+input{
+
+    padding:15px;
+
+    border-radius:20px;
+
+    border:1px solid #ddd;
+
+    font-size:16px;
+
+    text-align:center;
+
+}
+
+
+
+#save{
+
+    background:#e63946;
+
+    color:white;
+
+}
+
+
+
+#final{
+
+    display:none;
+
+}
+
+
+
+
 </style>
+
 
 </head>
 
@@ -146,9 +223,17 @@ button{
 <div class="container">
 
 
+
+<!-- صفحه اول -->
+
+
+<div id="page1">
+
+
 <div class="heart">
 ❤️
 </div>
+
 
 
 <h1>
@@ -179,16 +264,95 @@ button{
 
 
 
-<div class="message" id="message">
+</div>
+
+
+
+
+
+
+<!-- صفحه دوم -->
+
+
+<div id="page2">
+
+
+<div class="heart">
+💌
+</div>
+
+
 
 <h1>
-🥰 ممنون که اومدی
+پس بیا یه قرار کوچیک داشته باشیم ❤️
 </h1>
 
+
+
 <p>
-بیا آروم باهم حرف بزنیم...
-<br>
-شاید یه قرار کوچیک برای شروع دوباره ❤️
+این بار آروم و بدون عجله حرف می‌زنیم...
+</p>
+
+
+
+<div class="box">
+
+
+<input 
+type="date"
+id="date">
+
+
+
+<input
+type="time"
+id="time">
+
+
+
+<input
+type="text"
+id="place"
+placeholder="📍 مکان قرار">
+
+
+
+</div>
+
+
+
+<button id="save">
+ثبت قرار ❤️
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- پایان -->
+
+
+<div id="final">
+
+
+<div class="heart">
+🥰
+</div>
+
+
+<h1>
+قرارمون ثبت شد ❤️
+</h1>
+
+
+<p id="result">
+
 </p>
 
 
@@ -202,62 +366,149 @@ button{
 
 
 
+
 <script>
 
 
-const no = document.getElementById("no");
-const yes = document.getElementById("yes");
-const message = document.getElementById("message");
+
+const yes =
+document.getElementById("yes");
 
 
-let size = 20;
+const no =
+document.getElementById("no");
+
+
+let size=20;
 
 
 
 function moveNo(){
 
-    let x = Math.random()*250-125;
-    let y = Math.random()*150-75;
+
+let x =
+Math.random()*250-125;
 
 
-    no.style.transform =
-    `translate(${x}px,${y}px)`;
+let y =
+Math.random()*150-75;
 
 
-    size += 5;
 
-    yes.style.fontSize =
-    size+"px";
+no.style.transform=
+`translate(${x}px,${y}px)`;
+
+
+
+size+=7;
+
+
+yes.style.fontSize=
+size+"px";
+
 
 }
 
 
 
-no.addEventListener("mouseover",moveNo);
+no.addEventListener(
+"mouseover",
+moveNo
+);
 
 
 
-no.addEventListener("touchstart",moveNo);
+no.addEventListener(
+"touchstart",
+moveNo
+);
 
 
 
-yes.addEventListener("click",()=>{
 
 
-    document.querySelector(".heart").style.display="none";
-    document.querySelector("h1").style.display="none";
-    document.querySelector("p").style.display="none";
-    document.querySelector(".buttons").style.display="none";
+yes.addEventListener(
+"click",
+()=>{
 
 
-    message.style.display="block";
+document.getElementById("page1").style.display="none";
 
 
-});
+document.getElementById("page2").style.display="block";
+
+
+}
+
+);
+
+
+
+
+
+
+
+document.getElementById("save")
+.addEventListener(
+"click",
+()=>{
+
+
+let date=
+document.getElementById("date").value;
+
+
+let time=
+document.getElementById("time").value;
+
+
+let place=
+document.getElementById("place").value;
+
+
+
+if(date && time && place){
+
+
+document.getElementById("page2").style.display="none";
+
+
+document.getElementById("final").style.display="block";
+
+
+document.getElementById("result").innerHTML=
+`
+📅 ${date}
+<br>
+⏰ ${time}
+<br>
+📍 ${place}
+<br><br>
+منتظرم که باهم حرف بزنیم ❤️
+`;
+
+
+
+}
+
+else{
+
+
+alert("همه قسمت‌ها رو پر کن ❤️");
+
+
+}
+
+
+
+}
+
+);
 
 
 
 </script>
+
 
 
 </body>
