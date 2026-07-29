@@ -8,14 +8,25 @@
 
 <title>یه حرف کوچیک ❤️</title>
 
-<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@latest/dist/css/persian-datepicker.min.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/persian-datepicker/dist/js/persian-datepicker.min.js"></script>
+
+
 
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Tahoma,sans-serif;
+font-family:tahoma;
 }
+
 
 body{
 
@@ -23,14 +34,15 @@ height:100vh;
 margin:0;
 
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 
 background:linear-gradient(135deg,#ff758c,#ff7eb3);
 
 overflow:hidden;
 
 }
+
 
 
 .container{
@@ -61,6 +73,7 @@ animation:pulse 1.2s infinite;
 }
 
 
+
 @keyframes pulse{
 
 50%{
@@ -78,6 +91,7 @@ color:#e63946;
 font-size:28px;
 
 }
+
 
 
 p{
@@ -148,21 +162,9 @@ display:none;
 
 
 
-.box{
+input{
 
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
-
-margin:25px 0;
-
-}
-
-
-
-select,input{
+width:100%;
 
 padding:15px;
 
@@ -174,7 +176,47 @@ font-size:16px;
 
 text-align:center;
 
-background:white;
+margin:10px 0;
+
+}
+
+
+
+.time-box{
+
+display:flex;
+
+justify-content:center;
+
+gap:10px;
+
+flex-wrap:wrap;
+
+margin:20px 0;
+
+}
+
+
+
+.time{
+
+background:#eee;
+
+padding:12px 18px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+}
+
+
+
+.time.active{
+
+background:#e63946;
+
+color:white;
 
 }
 
@@ -203,6 +245,7 @@ animation:fall 5s linear infinite;
 }
 
 
+
 @keyframes fall{
 
 to{
@@ -216,6 +259,7 @@ transform:translateY(110vh);
 
 </style>
 
+
 </head>
 
 
@@ -223,7 +267,6 @@ transform:translateY(110vh);
 
 
 <div class="container">
-
 
 
 <!-- صفحه اول -->
@@ -269,6 +312,7 @@ transform:translateY(110vh);
 
 
 
+
 <!-- صفحه دوم -->
 
 
@@ -291,32 +335,34 @@ transform:translateY(110vh);
 
 
 
-<div class="box">
-
-
-<select id="year"></select>
-
-
-<select id="month"></select>
-
-
-<select id="day"></select>
-
-
 <input 
-type="time"
-id="time"
-step="60"
-lang="fa">
+id="date"
+placeholder="📅 انتخاب تاریخ قرار"
+readonly>
 
 
-<input
-type="text"
-id="place"
-placeholder="📍 مکان قرار">
+
+<div class="time-box">
+
+
+<div class="time">20:00</div>
+
+<div class="time">21:00</div>
+
+<div class="time">22:00</div>
+
+<div class="time">23:00</div>
+
+<div class="time">00:00</div>
 
 
 </div>
+
+
+
+<input
+id="place"
+placeholder="📍 مکان قرار">
 
 
 
@@ -325,8 +371,8 @@ placeholder="📍 مکان قرار">
 </button>
 
 
-
 </div>
+
 
 
 
@@ -356,7 +402,6 @@ placeholder="📍 مکان قرار">
 
 
 
-
 </div>
 
 
@@ -364,7 +409,32 @@ placeholder="📍 مکان قرار">
 
 
 
+
 <script>
+
+
+
+// تقویم شمسی
+
+
+$("#date").persianDatepicker({
+
+format:"YYYY/MM/DD",
+
+autoClose:true,
+
+initialValue:false,
+
+
+
+});
+
+
+
+
+
+
+// دکمه نه
 
 
 const yes=document.getElementById("yes");
@@ -397,7 +467,6 @@ yes.style.fontSize=size+"px";
 }
 
 
-
 no.addEventListener("mouseover",moveNo);
 
 no.addEventListener("touchstart",moveNo);
@@ -406,11 +475,15 @@ no.addEventListener("touchstart",moveNo);
 
 
 
+
+
+// رفتن صفحه دوم
+
+
 yes.onclick=function(){
 
 
 document.getElementById("page1").style.display="none";
-
 
 document.getElementById("page2").style.display="block";
 
@@ -422,55 +495,33 @@ document.getElementById("page2").style.display="block";
 
 
 
-
-// تاریخ شمسی
-
-
-let now=new Date();
+// انتخاب ساعت
 
 
-let today=jalaali.toJalaali(
-now.getFullYear(),
-now.getMonth()+1,
-now.getDate()
-);
+let selectedTime="";
 
 
-
-let year=document.getElementById("year");
-
-let month=document.getElementById("month");
-
-let day=document.getElementById("day");
+document.querySelectorAll(".time")
+.forEach(btn=>{
 
 
+btn.onclick=function(){
 
 
-
-for(let i=today.jy;i<=today.jy+3;i++){
-
-year.innerHTML+=
-`<option>${i}</option>`;
-
-}
+document.querySelectorAll(".time")
+.forEach(x=>x.classList.remove("active"));
 
 
-
-for(let i=1;i<=12;i++){
-
-month.innerHTML+=
-`<option>${i}</option>`;
-
-}
+btn.classList.add("active");
 
 
+selectedTime=btn.innerText;
 
-for(let i=1;i<=31;i++){
 
-day.innerHTML+=
-`<option>${i}</option>`;
+};
 
-}
+
+});
 
 
 
@@ -486,26 +537,14 @@ document.getElementById("save").onclick=function(){
 
 
 
-let date=
-year.value+
-"/"+
-month.value+
-"/"+
-day.value;
+let date=document.getElementById("date").value;
+
+
+let place=document.getElementById("place").value;
 
 
 
-let time=
-document.getElementById("time").value;
-
-
-
-let place=
-document.getElementById("place").value;
-
-
-
-if(time && place){
+if(date && selectedTime && place){
 
 
 document.getElementById("page2").style.display="none";
@@ -514,8 +553,7 @@ document.getElementById("page2").style.display="none";
 document.getElementById("page3").style.display="block";
 
 
-
-startTyping(date,time,place);
+startTyping(date,selectedTime,place);
 
 
 }
@@ -523,7 +561,7 @@ startTyping(date,time,place);
 else{
 
 
-alert("لطفاً ساعت و مکان رو کامل کن ❤️");
+alert("تاریخ، ساعت و مکان رو کامل کن ❤️");
 
 
 }
@@ -538,10 +576,12 @@ alert("لطفاً ساعت و مکان رو کامل کن ❤️");
 
 
 
+
 function startTyping(date,time,place){
 
 
 let text=
+
 `درست یک هفته از هم دور بودیم...
 
 ولی بیا با دیدار هم،
@@ -572,7 +612,9 @@ let text=
 
 let i=0;
 
+
 let box=document.getElementById("text");
+
 
 
 let timer=setInterval(()=>{
@@ -602,32 +644,31 @@ clearInterval(timer);
 
 
 
-
 // قلب های متحرک
 
 
 setInterval(()=>{
 
 
-let heart=document.createElement("div");
+let h=document.createElement("div");
 
 
-heart.className="heart-bg";
+h.className="heart-bg";
 
 
-heart.innerHTML="❤️";
+h.innerHTML="❤️";
 
 
-heart.style.left=Math.random()*100+"%";
+h.style.left=Math.random()*100+"%";
 
 
-document.body.appendChild(heart);
+document.body.appendChild(h);
 
 
 
 setTimeout(()=>{
 
-heart.remove();
+h.remove();
 
 },5000);
 
