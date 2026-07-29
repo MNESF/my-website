@@ -85,9 +85,7 @@ animation:pulse 1.2s infinite;
 @keyframes pulse{
 
 50%{
-
 transform:scale(1.2);
-
 }
 
 }
@@ -188,8 +186,6 @@ text-align:center;
 
 margin:10px 0;
 
-background:white;
-
 }
 
 
@@ -219,7 +215,6 @@ z-index:-1;
 }
 
 
-
 @keyframes fall{
 
 to{
@@ -231,9 +226,7 @@ transform:translateY(110vh);
 }
 
 
-
 </style>
-
 
 </head>
 
@@ -242,20 +235,14 @@ transform:translateY(110vh);
 <body>
 
 
-
 <div class="container">
 
-
-
-<!-- صفحه اول -->
 
 
 <div id="page1">
 
 
-<div class="heart">
-❤️
-</div>
+<div class="heart">❤️</div>
 
 
 <h1>
@@ -266,7 +253,6 @@ transform:translateY(110vh);
 <p>
 شاید هنوز چندتا حرف مونده که باید آروم و قشنگ بزنیم...
 </p>
-
 
 
 <div class="buttons">
@@ -285,24 +271,18 @@ transform:translateY(110vh);
 </div>
 
 
-
 </div>
 
 
 
 
 
-
-
-<!-- صفحه دوم -->
 
 
 <div id="page2">
 
 
-<div class="heart">
-💌
-</div>
+<div class="heart">💌</div>
 
 
 <h1>
@@ -326,8 +306,7 @@ readonly>
 <input
 type="time"
 id="time"
-step="300"
-lang="fa">
+step="300">
 
 
 
@@ -349,10 +328,6 @@ placeholder="📍 مکان قرار">
 
 
 
-
-
-
-<!-- صفحه سوم -->
 
 
 <div id="page3">
@@ -385,9 +360,14 @@ placeholder="📍 مکان قرار">
 <script>
 
 
+// لینک گوگل شیت
+const sheetURL =
+"لینک گوگل اسکریپت تو";
+
+
+
 
 // تقویم شمسی
-
 
 $("#date").persianDatepicker({
 
@@ -405,7 +385,7 @@ initialValue:false
 
 
 
-// فرار کردن دکمه نه
+// دکمه نه
 
 
 const yes=document.getElementById("yes");
@@ -414,7 +394,6 @@ const no=document.getElementById("no");
 
 
 let size=20;
-
 
 
 function moveNo(){
@@ -438,7 +417,6 @@ yes.style.fontSize=size+"px";
 }
 
 
-
 no.addEventListener("mouseover",moveNo);
 
 no.addEventListener("touchstart",moveNo);
@@ -455,10 +433,9 @@ no.addEventListener("touchstart",moveNo);
 yes.onclick=function(){
 
 
-document.getElementById("page1").style.display="none";
+page1.style.display="none";
 
-
-document.getElementById("page2").style.display="block";
+page2.style.display="block";
 
 
 };
@@ -473,17 +450,15 @@ document.getElementById("page2").style.display="block";
 // ثبت قرار
 
 
-document.getElementById("save").onclick=function(){
+save.onclick=function(){
 
 
 let date=
 document.getElementById("date").value;
 
 
-
 let time=
 document.getElementById("time").value;
-
 
 
 let place=
@@ -491,30 +466,53 @@ document.getElementById("place").value;
 
 
 
-
 if(date && time && place){
 
 
-document.getElementById("page2").style.display="none";
+
+fetch(sheetURL,{
+
+method:"POST",
+
+body:JSON.stringify({
+
+date:date,
+
+time:time,
+
+place:place
+
+})
+
+})
+.then(()=>{
 
 
-document.getElementById("page3").style.display="block";
+page2.style.display="none";
 
+page3.style.display="block";
 
 
 startTyping(date,time,place);
+
+
+})
+
+.catch(()=>{
+
+alert("خطا در ارسال اطلاعات");
+
+});
+
 
 
 }
 
 else{
 
-
-alert("تاریخ، ساعت و مکان رو کامل کن ❤️");
-
+alert("همه قسمت‌ها رو کامل کن ❤️");
 
 }
-
 
 
 };
@@ -526,7 +524,6 @@ alert("تاریخ، ساعت و مکان رو کامل کن ❤️");
 
 
 function startTyping(date,time,place){
-
 
 
 let text=
@@ -555,7 +552,7 @@ let text=
 
 اشی مشی کوچولوی من ❤️
 
-این سایتو فقط برای تو درست کردم چون ارزششو داری
+این وب سایت فقط برای تو ساختم چون ارزششو داری 
 
 منتظرم...`;
 
@@ -586,7 +583,6 @@ clearInterval(timer);
 },60);
 
 
-
 }
 
 
@@ -595,8 +591,7 @@ clearInterval(timer);
 
 
 
-
-// قلب های متحرک
+// قلب ها
 
 
 setInterval(()=>{
