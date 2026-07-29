@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>یه حرف کوچیک ❤️</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:Tahoma, sans-serif;
+}
+
+body{
+    height:100vh;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+    overflow:hidden;
+}
+
+
+.container{
+
+    background:white;
+    width:90%;
+    max-width:430px;
+    padding:40px 25px;
+    text-align:center;
+    border-radius:35px;
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+
+}
+
+
+.heart{
+
+    font-size:80px;
+    animation:beat 1.2s infinite;
+
+}
+
+
+@keyframes beat{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.2);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+
+}
+
+
+
+h1{
+
+    color:#e63946;
+    font-size:30px;
+
+}
+
+
+
+p{
+
+    color:#555;
+    font-size:18px;
+    line-height:2;
+
+}
+
+
+
+.buttons{
+
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    position:relative;
+
+}
+
+
+
+button{
+
+    border:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+
+}
+
+
+
+#yes{
+
+    background:#e63946;
+    color:white;
+
+}
+
+
+
+#no{
+
+    background:#ddd;
+    color:#555;
+    position:absolute;
+
+}
+
+
+
+.message{
+
+    display:none;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="heart">
+❤️
+</div>
+
+
+<h1>
+میای باهم صحبت کنیم؟
+</h1>
+
+
+<p>
+شاید هنوز چندتا حرف مونده که باید آروم و قشنگ بزنیم...
+</p>
+
+
+
+<div class="buttons">
+
+
+<button id="yes">
+آره ❤️
+</button>
+
+
+<button id="no">
+نه
+</button>
+
+
+</div>
+
+
+
+<div class="message" id="message">
+
+<h1>
+🥰 ممنون که اومدی
+</h1>
+
+<p>
+بیا آروم باهم حرف بزنیم...
+<br>
+شاید یه قرار کوچیک برای شروع دوباره ❤️
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+const no = document.getElementById("no");
+const yes = document.getElementById("yes");
+const message = document.getElementById("message");
+
+
+let size = 20;
+
+
+
+function moveNo(){
+
+    let x = Math.random()*250-125;
+    let y = Math.random()*150-75;
+
+
+    no.style.transform =
+    `translate(${x}px,${y}px)`;
+
+
+    size += 5;
+
+    yes.style.fontSize =
+    size+"px";
+
+}
+
+
+
+no.addEventListener("mouseover",moveNo);
+
+
+
+no.addEventListener("touchstart",moveNo);
+
+
+
+yes.addEventListener("click",()=>{
+
+
+    document.querySelector(".heart").style.display="none";
+    document.querySelector("h1").style.display="none";
+    document.querySelector("p").style.display="none";
+    document.querySelector(".buttons").style.display="none";
+
+
+    message.style.display="block";
+
+
+});
+
+
+
+</script>
+
+
+</body>
+
+</html>
