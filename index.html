@@ -8,66 +8,62 @@
 
 <title>یه حرف کوچیک ❤️</title>
 
-
 <style>
 
 *{
-    box-sizing:border-box;
-    font-family:Tahoma, sans-serif;
+box-sizing:border-box;
+font-family:Tahoma,sans-serif;
 }
 
 
 body{
 
-    height:100vh;
-    margin:0;
+height:100vh;
+margin:0;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    background:linear-gradient(135deg,#ff758c,#ff7eb3);
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
 
-    overflow:hidden;
+overflow:hidden;
 
 }
-
 
 
 .container{
 
-    width:90%;
-    max-width:430px;
+width:90%;
+max-width:450px;
 
-    background:white;
+background:white;
 
-    padding:35px 25px;
+padding:35px 25px;
 
-    border-radius:35px;
+border-radius:35px;
 
-    text-align:center;
+text-align:center;
 
-    box-shadow:0 20px 60px rgba(0,0,0,.2);
+box-shadow:0 20px 60px rgba(0,0,0,.2);
 
 }
-
 
 
 .heart{
 
-    font-size:80px;
+font-size:80px;
 
-    animation:beat 1.2s infinite;
+animation:heart 1.2s infinite;
 
 }
 
 
+@keyframes heart{
 
-@keyframes beat{
-
-    50%{
-        transform:scale(1.2);
-    }
+50%{
+transform:scale(1.2);
+}
 
 }
 
@@ -75,9 +71,9 @@ body{
 
 h1{
 
-    color:#e63946;
+color:#e63946;
 
-    font-size:30px;
+font-size:28px;
 
 }
 
@@ -85,23 +81,11 @@ h1{
 
 p{
 
-    color:#555;
+font-size:17px;
 
-    line-height:2;
+line-height:2;
 
-    font-size:17px;
-
-}
-
-
-
-.buttons{
-
-    margin-top:35px;
-
-    height:80px;
-
-    position:relative;
+color:#555;
 
 }
 
@@ -109,27 +93,27 @@ p{
 
 button{
 
-    border:none;
+border:none;
 
-    border-radius:50px;
+border-radius:50px;
 
-    padding:15px 35px;
+padding:15px 35px;
 
-    font-size:20px;
+font-size:20px;
 
-    cursor:pointer;
+cursor:pointer;
 
-    transition:.3s;
+transition:.3s;
 
 }
 
 
 
-#yes{
+#yes,#save{
 
-    background:#e63946;
+background:#e63946;
 
-    color:white;
+color:white;
 
 }
 
@@ -137,25 +121,29 @@ button{
 
 #no{
 
-    background:#ddd;
+background:#ddd;
 
-    color:#555;
-
-    position:absolute;
-
-    right:40px;
+position:absolute;
 
 }
 
 
 
+.buttons{
 
-/* صفحه دوم */
+height:90px;
+
+position:relative;
+
+margin-top:30px;
+
+}
 
 
-#page2{
 
-    display:none;
+#page2,#page3{
+
+display:none;
 
 }
 
@@ -163,13 +151,13 @@ button{
 
 .box{
 
-    display:flex;
+display:flex;
 
-    flex-direction:column;
+flex-direction:column;
 
-    gap:15px;
+gap:15px;
 
-    margin:25px 0;
+margin:25px 0;
 
 }
 
@@ -177,41 +165,55 @@ button{
 
 input{
 
-    padding:15px;
+padding:15px;
 
-    border-radius:20px;
+border-radius:20px;
 
-    border:1px solid #ddd;
+border:1px solid #ddd;
 
-    font-size:16px;
+font-size:16px;
 
-    text-align:center;
-
-}
-
-
-
-#save{
-
-    background:#e63946;
-
-    color:white;
+text-align:center;
 
 }
 
 
 
-#final{
+.typing{
 
-    display:none;
+min-height:200px;
+
+white-space:pre-line;
 
 }
 
 
+
+.heart-bg{
+
+position:fixed;
+
+font-size:25px;
+
+animation:fall 5s linear infinite;
+
+}
+
+
+@keyframes fall{
+
+from{
+transform:translateY(-100px);
+}
+
+to{
+transform:translateY(100vh);
+}
+
+}
 
 
 </style>
-
 
 </head>
 
@@ -226,14 +228,12 @@ input{
 
 <!-- صفحه اول -->
 
-
 <div id="page1">
 
 
 <div class="heart">
 ❤️
 </div>
-
 
 
 <h1>
@@ -246,9 +246,7 @@ input{
 </p>
 
 
-
 <div class="buttons">
-
 
 <button id="yes">
 آره ❤️
@@ -261,7 +259,6 @@ input{
 
 
 </div>
-
 
 
 </div>
@@ -282,15 +279,13 @@ input{
 </div>
 
 
-
 <h1>
 پس بیا یه قرار کوچیک داشته باشیم ❤️
 </h1>
 
 
-
 <p>
-این بار آروم و بدون عجله حرف می‌زنیم...
+این دوری رو با یه دیدار قشنگ تموم کنیم...
 </p>
 
 
@@ -298,23 +293,13 @@ input{
 <div class="box">
 
 
-<input 
-type="date"
-id="date">
+<input type="date" id="date">
 
 
-
-<input
-type="time"
-id="time">
+<input type="time" id="time">
 
 
-
-<input
-type="text"
-id="place"
-placeholder="📍 مکان قرار">
-
+<input type="text" id="place" placeholder="📍 مکان قرار">
 
 
 </div>
@@ -326,7 +311,6 @@ placeholder="📍 مکان قرار">
 </button>
 
 
-
 </div>
 
 
@@ -335,33 +319,31 @@ placeholder="📍 مکان قرار">
 
 
 
-<!-- پایان -->
+<!-- صفحه سوم -->
 
 
-<div id="final">
+<div id="page3">
 
 
 <div class="heart">
-🥰
+🥺❤️
 </div>
 
 
 <h1>
-قرارمون ثبت شد ❤️
+برای تو...
 </h1>
 
 
-<p id="result">
-
-</p>
+<p class="typing" id="text"></p>
 
 
 </div>
 
 
 
-</div>
 
+</div>
 
 
 
@@ -370,14 +352,9 @@ placeholder="📍 مکان قرار">
 <script>
 
 
+const yes=document.getElementById("yes");
 
-const yes =
-document.getElementById("yes");
-
-
-const no =
-document.getElementById("no");
-
+const no=document.getElementById("no");
 
 let size=20;
 
@@ -386,84 +363,56 @@ let size=20;
 function moveNo(){
 
 
-let x =
-Math.random()*250-125;
+let x=Math.random()*250-125;
 
-
-let y =
-Math.random()*150-75;
-
+let y=Math.random()*150-75;
 
 
 no.style.transform=
 `translate(${x}px,${y}px)`;
 
 
+size+=8;
 
-size+=7;
 
-
-yes.style.fontSize=
-size+"px";
+yes.style.fontSize=size+"px";
 
 
 }
 
 
+no.addEventListener("mouseover",moveNo);
 
-no.addEventListener(
-"mouseover",
-moveNo
-);
-
-
-
-no.addEventListener(
-"touchstart",
-moveNo
-);
+no.addEventListener("touchstart",moveNo);
 
 
 
 
 
-yes.addEventListener(
-"click",
-()=>{
+yes.onclick=function(){
 
 
 document.getElementById("page1").style.display="none";
 
-
 document.getElementById("page2").style.display="block";
 
 
-}
-
-);
+};
 
 
 
 
 
 
-
-document.getElementById("save")
-.addEventListener(
-"click",
-()=>{
+document.getElementById("save").onclick=function(){
 
 
-let date=
-document.getElementById("date").value;
 
+let date=document.getElementById("date").value;
 
-let time=
-document.getElementById("time").value;
+let time=document.getElementById("time").value;
 
-
-let place=
-document.getElementById("place").value;
+let place=document.getElementById("place").value;
 
 
 
@@ -473,19 +422,11 @@ if(date && time && place){
 document.getElementById("page2").style.display="none";
 
 
-document.getElementById("final").style.display="block";
+document.getElementById("page3").style.display="block";
 
 
-document.getElementById("result").innerHTML=
-`
-📅 ${date}
-<br>
-⏰ ${time}
-<br>
-📍 ${place}
-<br><br>
-منتظرم که باهم حرف بزنیم ❤️
-`;
+
+startTyping();
 
 
 
@@ -500,15 +441,104 @@ alert("همه قسمت‌ها رو پر کن ❤️");
 }
 
 
+};
+
+
+
+
+
+
+
+function startTyping(){
+
+
+let text=
+`درست یک هفته از هم دور بودیم...
+
+ولی بیا با دیدار هم،
+این دوری رو تموم کنیم.
+
+بیا دوباره کنار هم بشینیم،
+حرف بزنیم،
+بخندیم و حال خوبمون رو برگردونیم ❤️
+
+من مثل قرار هر شب،
+ساعت ۱۲ بهت زنگ میزنم...
+
+پیشی میشی؟ 🥺❤️
+
+اشی مشی کوچولوی من ❤️
+
+منتظرم...`;
+
+
+
+let i=0;
+
+
+let box=document.getElementById("text");
+
+
+let timer=setInterval(()=>{
+
+
+box.innerHTML+=text[i];
+
+i++;
+
+
+if(i>=text.length){
+
+clearInterval(timer);
 
 }
 
-);
+
+},70);
+
+
+
+}
+
+
+
+
+
+
+
+// قلب های متحرک
+
+
+setInterval(()=>{
+
+
+let heart=document.createElement("div");
+
+heart.className="heart-bg";
+
+heart.innerHTML="❤️";
+
+
+heart.style.left=Math.random()*100+"%";
+
+
+document.body.appendChild(heart);
+
+
+
+setTimeout(()=>{
+
+heart.remove();
+
+},5000);
+
+
+
+},800);
 
 
 
 </script>
-
 
 
 </body>
