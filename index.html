@@ -8,13 +8,14 @@
 
 <title>یه حرف کوچیک ❤️</title>
 
+<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.js"></script>
+
 <style>
 
 *{
 box-sizing:border-box;
 font-family:Tahoma,sans-serif;
 }
-
 
 body{
 
@@ -50,16 +51,17 @@ box-shadow:0 20px 60px rgba(0,0,0,.2);
 }
 
 
+
 .heart{
 
 font-size:80px;
 
-animation:heart 1.2s infinite;
+animation:pulse 1.2s infinite;
 
 }
 
 
-@keyframes heart{
+@keyframes pulse{
 
 50%{
 transform:scale(1.2);
@@ -76,7 +78,6 @@ color:#e63946;
 font-size:28px;
 
 }
-
 
 
 p{
@@ -102,8 +103,6 @@ padding:15px 35px;
 font-size:20px;
 
 cursor:pointer;
-
-transition:.3s;
 
 }
 
@@ -163,7 +162,7 @@ margin:25px 0;
 
 
 
-input{
+select,input{
 
 padding:15px;
 
@@ -175,15 +174,17 @@ font-size:16px;
 
 text-align:center;
 
+background:white;
+
 }
 
 
 
 .typing{
 
-min-height:200px;
-
 white-space:pre-line;
+
+min-height:250px;
 
 }
 
@@ -192,6 +193,8 @@ white-space:pre-line;
 .heart-bg{
 
 position:fixed;
+
+top:-50px;
 
 font-size:25px;
 
@@ -202,12 +205,10 @@ animation:fall 5s linear infinite;
 
 @keyframes fall{
 
-from{
-transform:translateY(-100px);
-}
-
 to{
-transform:translateY(100vh);
+
+transform:translateY(110vh);
+
 }
 
 }
@@ -216,7 +217,6 @@ transform:translateY(100vh);
 </style>
 
 </head>
-
 
 
 <body>
@@ -247,6 +247,7 @@ transform:translateY(100vh);
 
 
 <div class="buttons">
+
 
 <button id="yes">
 آره ❤️
@@ -293,13 +294,26 @@ transform:translateY(100vh);
 <div class="box">
 
 
-<input type="date" id="date">
+<select id="year"></select>
 
 
-<input type="time" id="time">
+<select id="month"></select>
 
 
-<input type="text" id="place" placeholder="📍 مکان قرار">
+<select id="day"></select>
+
+
+<input 
+type="time"
+id="time"
+step="60"
+lang="fa">
+
+
+<input
+type="text"
+id="place"
+placeholder="📍 مکان قرار">
 
 
 </div>
@@ -311,8 +325,8 @@ transform:translateY(100vh);
 </button>
 
 
-</div>
 
+</div>
 
 
 
@@ -335,7 +349,7 @@ transform:translateY(100vh);
 </h1>
 
 
-<p class="typing" id="text"></p>
+<p id="text" class="typing"></p>
 
 
 </div>
@@ -344,6 +358,7 @@ transform:translateY(100vh);
 
 
 </div>
+
 
 
 
@@ -355,6 +370,7 @@ transform:translateY(100vh);
 const yes=document.getElementById("yes");
 
 const no=document.getElementById("no");
+
 
 let size=20;
 
@@ -381,6 +397,7 @@ yes.style.fontSize=size+"px";
 }
 
 
+
 no.addEventListener("mouseover",moveNo);
 
 no.addEventListener("touchstart",moveNo);
@@ -394,6 +411,7 @@ yes.onclick=function(){
 
 document.getElementById("page1").style.display="none";
 
+
 document.getElementById("page2").style.display="block";
 
 
@@ -404,19 +422,90 @@ document.getElementById("page2").style.display="block";
 
 
 
+
+// تاریخ شمسی
+
+
+let now=new Date();
+
+
+let today=jalaali.toJalaali(
+now.getFullYear(),
+now.getMonth()+1,
+now.getDate()
+);
+
+
+
+let year=document.getElementById("year");
+
+let month=document.getElementById("month");
+
+let day=document.getElementById("day");
+
+
+
+
+
+for(let i=today.jy;i<=today.jy+3;i++){
+
+year.innerHTML+=
+`<option>${i}</option>`;
+
+}
+
+
+
+for(let i=1;i<=12;i++){
+
+month.innerHTML+=
+`<option>${i}</option>`;
+
+}
+
+
+
+for(let i=1;i<=31;i++){
+
+day.innerHTML+=
+`<option>${i}</option>`;
+
+}
+
+
+
+
+
+
+
+
+// ثبت قرار
+
+
 document.getElementById("save").onclick=function(){
 
 
 
-let date=document.getElementById("date").value;
+let date=
+year.value+
+"/"+
+month.value+
+"/"+
+day.value;
 
-let time=document.getElementById("time").value;
-
-let place=document.getElementById("place").value;
 
 
+let time=
+document.getElementById("time").value;
 
-if(date && time && place){
+
+
+let place=
+document.getElementById("place").value;
+
+
+
+if(time && place){
 
 
 document.getElementById("page2").style.display="none";
@@ -426,8 +515,7 @@ document.getElementById("page3").style.display="block";
 
 
 
-startTyping();
-
+startTyping(date,time,place);
 
 
 }
@@ -435,10 +523,11 @@ startTyping();
 else{
 
 
-alert("همه قسمت‌ها رو پر کن ❤️");
+alert("لطفاً ساعت و مکان رو کامل کن ❤️");
 
 
 }
+
 
 
 };
@@ -449,18 +538,26 @@ alert("همه قسمت‌ها رو پر کن ❤️");
 
 
 
-function startTyping(){
+function startTyping(date,time,place){
 
 
 let text=
 `درست یک هفته از هم دور بودیم...
 
 ولی بیا با دیدار هم،
-این دوری رو تموم کنیم.
+این دوری رو تموم کنیم ❤️
 
 بیا دوباره کنار هم بشینیم،
-حرف بزنیم،
-بخندیم و حال خوبمون رو برگردونیم ❤️
+حرف بزنیم و بخندیم...
+
+قرارمون:
+
+📅 ${date}
+
+⏰ ${time}
+
+📍 ${place}
+
 
 من مثل قرار هر شب،
 ساعت ۱۲ بهت زنگ میزنم...
@@ -475,7 +572,6 @@ let text=
 
 let i=0;
 
-
 let box=document.getElementById("text");
 
 
@@ -483,6 +579,7 @@ let timer=setInterval(()=>{
 
 
 box.innerHTML+=text[i];
+
 
 i++;
 
@@ -494,7 +591,7 @@ clearInterval(timer);
 }
 
 
-},70);
+},60);
 
 
 
@@ -514,7 +611,9 @@ setInterval(()=>{
 
 let heart=document.createElement("div");
 
+
 heart.className="heart-bg";
+
 
 heart.innerHTML="❤️";
 
